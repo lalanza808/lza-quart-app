@@ -5,7 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 from myapp import config
 
 
-app = None
 db = SQLAlchemy()
 
 async def _setup_db(app: Quart):
@@ -21,7 +20,6 @@ async def _setup_db(app: Quart):
     db = SQLAlchemy(app)
 
 def create_app():
-    global app
     app = Quart(__name__)
     app.config.from_envvar('QUART_SECRETS')
 
